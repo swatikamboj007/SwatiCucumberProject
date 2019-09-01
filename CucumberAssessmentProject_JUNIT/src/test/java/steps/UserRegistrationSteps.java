@@ -16,12 +16,7 @@ public class UserRegistrationSteps {
 	CreateAnAccountPageActions createAnAccount = new CreateAnAccountPageActions();
 
 	
-//	@Given("I am on the home page of fashion website {string}")
-//	public void i_am_on_the_home_page_of_fashion_website(String websiteUrl) {
-//		SeleniumDriver.launchPage(websiteUrl);
-//		
-//	}
-	
+
 	@Given("^I am on the home page of fashion website \"([^\"]*)\"$")
 	public void i_am_on_the_home_page_of_fashion_website(String websiteUrl) throws Throwable {
 		SeleniumDriver.launchPage(websiteUrl);
@@ -34,8 +29,8 @@ public class UserRegistrationSteps {
 	}
 
 		
-	@And("I enter \\{string\\} email address")
-	public void i_enter_email_address(String emailType) {
+	@And("^I enter \"([^\"]*)\" email address$")
+	public void i_enter_email_address(String emailType) throws Throwable {
 		String invalidEmail = authPageAction.generateRandomEmailaddress(emailType);
 		System.out.println("email address is" + invalidEmail );
 		authPageAction.inputEmailAddress(invalidEmail);
@@ -47,19 +42,25 @@ public class UserRegistrationSteps {
 	}
 
 		
-	@Then("I should see error message \\{string\\}")
-	public void i_should_see_error_message(String message) {
-	    
+
+	
+	@Then("^I should see error message \"([^\"]*)\"$")
+	public void i_should_see_error_message(String message) throws Throwable {
+	   
 		authPageAction.registerationResult(message.toLowerCase());
 	}
 	
-	@And("I enter a \\{string\\} email in the Email address field")
-	public void i_enter_a_email_in_the_Email_address_field(String emailType) {
-	    
+
+	
+	@And("^I enter a \"([^\"]*)\" email in the Email address field$")
+	public void i_enter_a_email_in_the_Email_address_field(String emailType) throws Throwable {
+		 
 		String validEmail = authPageAction.generateRandomEmailaddress(emailType);
 		//System.out.println("email address is" + validEmail );
 		authPageAction.inputEmailAddress(validEmail);
 	}
+
+		
 	
 	@And("I fill the user registration form with random generated values on Create An Account page")
 	public void i_fill_the_user_registration_form_with_random_generated_values_on_Create_An_Account_page() {
@@ -77,9 +78,11 @@ public class UserRegistrationSteps {
 		createAnAccount.clickRegisterButton();
 	}
 
-	@Then("I should be successfully registered and land on \\{string\\} page")
-	public void i_should_be_successfully_registered_and_land_on_page(String heading) {
-	    
+
+	
+	@Then("^I should be successfully registered and land on \"([^\"]*)\" page$")
+	public void i_should_be_successfully_registered_and_land_on_page(String heading) throws Throwable {
+
 		createAnAccount.verifyRegistration(heading.toUpperCase());
 	}
 
