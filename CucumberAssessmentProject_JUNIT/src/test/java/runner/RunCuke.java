@@ -19,7 +19,7 @@ import cucumber.api.junit.Cucumber;
 		features= {"src/test/resources/features"},
 		glue= {"steps"},
 		monochrome=true,
-		tags= {"@User-Register"},
+		tags= {"@User-Register","@Megamenu","@Summer-Dresses","@Cart-Validation","@User-Register-InvalidEmail","@User-Register-ValidEmail"},
 		plugin = {"pretty","html:target/RunCuke/cucumber.html","html:test-output/Cucumber-report"})
 
 public class RunCuke {
