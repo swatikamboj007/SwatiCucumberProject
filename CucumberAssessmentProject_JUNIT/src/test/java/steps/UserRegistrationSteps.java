@@ -20,6 +20,7 @@ public class UserRegistrationSteps {
 	@Given("^I am on the home page of fashion website \"([^\"]*)\"$")
 	public void i_am_on_the_home_page_of_fashion_website(String websiteUrl) throws Throwable {
 		SeleniumDriver.launchPage(websiteUrl);
+		Thread.sleep(5000); //comment or remove this at the end
 	}
 
 	@When("I click on Sign in")
