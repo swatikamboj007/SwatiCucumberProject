@@ -21,6 +21,7 @@ public class MegamenuSteps {
 
 		dressesPageActions.moveToMegaMenu(dressMegaMenu);
 		//homePageActions.clickOnSignInLink();
+		System.out.println("Thread info" + Thread.currentThread().getId());
 	}
 
 
@@ -29,6 +30,7 @@ public class MegamenuSteps {
 	public void i_click_on_submenu(String dressSubMenu) throws Throwable {
 
 		dressesPageActions.clickDressesSubMenu(dressSubMenu);	
+		System.out.println("Thread info" + Thread.currentThread().getId());
 	}
 
 

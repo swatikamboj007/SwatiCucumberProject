@@ -26,6 +26,7 @@ public class UserRegistrationSteps {
 	@When("I click on Sign in")
 	public void i_click_on_Sign_in() {
 		homePageActions.clickOnSignInLink();
+		System.out.println("Thread info" + Thread.currentThread().getId());
 		
 	}
 
@@ -35,11 +36,13 @@ public class UserRegistrationSteps {
 		String invalidEmail = authPageAction.generateRandomEmailaddress(emailType);
 		System.out.println("email address is" + invalidEmail );
 		authPageAction.inputEmailAddress(invalidEmail);
+		System.out.println("Thread info" + Thread.currentThread().getId());
 	}
 	
 	@And("I click on Create an account button")
 	public void i_click_on_button() {
 		authPageAction.clickCreateAnAccountButton();
+		System.out.println("Thread info" + Thread.currentThread().getId());
 	}
 
 		
